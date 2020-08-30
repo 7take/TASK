@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebCampBackendNew</title>
+  		<!-- <meta charset="UTF-8"> -->
+ 		<!-- <style type="text/css"></style> -->
+  		<link rel="stylesheet" media="all" herf="/assets/application.css/" data-turbolinks-track="reload">
+  		<script src="/assets/application.css" data-turbolinks-track="reload"></script>
+	</head>
+	<body>
+		<p id="notice"></p>
+		<h1>Books</h1>
+		<% @books.each do |book| %>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>body</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= book.title %></td>
+					<td><%= book.body %></td>
+					<td><%= link_to "Show", book_path(book.id) %></td>
+					<td><%= link_to "Edit", edit_book_path(book.id) %></td>
+					<td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+				</tr>
+			</tbody>
+		</table>
+<% end %>
+		<h2>New book</h2>
+		<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
+			<input name="utf-8" type="hidden" value="√">
+			<input type="hidden" name="authenticity_token" value="Tlzzsi6yWki1UniC5Z7oN6D9AeVxSLx/Tx3MByfsL101eLIGe+aTSpirkQ3TgENSIfFmCFE5cLxkiqYj4VEFbw==">
+			<div class="field">
+				<lavel for="book_title">Title</lavel>
+				<input class="book_title" type="text" name="book[title]" id="book_title">
+			</div>
+			<div class="field">
+				<label for="book-body">Body</label>
+				<textarea class="book_body" name="book[body]" id="book_body"></textarea>
+			</div>
+			<div class="actions">
+				<input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
+			</div>
+   		</form>
+  	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
